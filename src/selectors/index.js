@@ -1,11 +1,7 @@
-import { createSelector } from 'reselect'
+import { days } from './get-days-in-month-selector';
+import { day, month, year } from './current-date-selector';
 
-export const fullState = createSelector(
-    state => state.get('applicationState'),
-    fullState => fullState
-);
-
-export const stateSelector = createSelector(
-    fullState,
-    stateSelector => stateSelector.get('state')
-);
+export const monthDays = days;
+export const currentDay = day;
+export const currentMonth = month;
+export const currentYear = year;

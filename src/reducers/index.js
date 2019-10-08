@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux-immutable';
-import { applicationState } from './global-state-reducer'
+import { daysCount } from './days-count-reducer';
+import { currentDay } from './current-date-reducer';
 
 export default combineReducers({
-    applicationState
+    calendarData: combineReducers({
+        daysCount,
+        currentDay
+    })
 });

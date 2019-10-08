@@ -1,14 +1,20 @@
 import React from 'react';
 import './App.css';
-import Button from './components/Button';
-import { globalState } from './connectors/index'
+import { Button } from './components/Button';
+import { CalendarHeader } from './components/CalendarHeader';
+import { DaysList } from './components/DaysList';
+import { daysNumber, currentDate } from './connectors/index'
 
-const ConnectedButton = globalState(Button)
+const ConnectedDaysList = daysNumber(DaysList);
+const ConnectedCalendarHeader = currentDate(CalendarHeader);
 
 function App() {
 	return (
-		<div className="App">
-			<ConnectedButton text="Hello" />
+		<div className="calendar-wrapper">
+			<Button />
+			<ConnectedCalendarHeader />
+			<Button />
+			<ConnectedDaysList />
 		</div>
 	);
 }
