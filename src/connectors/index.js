@@ -1,5 +1,5 @@
-import { daysNumberConnector } from './days-list-connector'
 import { currentDateConnector } from './current-date-connector'
+import { currentMonthConnector } from './month-list-connector'
 
-export const daysNumber = daysNumberConnector;
 export const currentDate = currentDateConnector;
+export const thisMonth = currentMonthConnector;

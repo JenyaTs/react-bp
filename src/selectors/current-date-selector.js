@@ -5,22 +5,12 @@ const calendarData = createSelector(
     calendarData => calendarData
 );
 
-const dateData = createSelector(
+const getData = createSelector(
     calendarData,
-    dateData => dateData.get('currentDay')
+    getData => getData.get('data')
 );
 
-export const day =  createSelector(
-    dateData,
-    day => day.get('day')
-);
-
-export const month =  createSelector(
-    dateData,
-    month => month.get('month')
-);
-
-export const year =  createSelector(
-    dateData,
-    year => year.get('year')
+export const currentDate = createSelector(
+    getData,
+    getYear => getYear.get('currentDate')
 );

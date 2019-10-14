@@ -3,10 +3,11 @@ import './App.css';
 import { Button } from './components/Button';
 import { CalendarHeader } from './components/CalendarHeader';
 import { DaysList } from './components/DaysList';
-import { daysNumber, currentDate } from './connectors/index'
+import { currentDate } from './connectors/index'
+import { thisMonth } from './connectors/index'
 
-const ConnectedDaysList = daysNumber(DaysList);
 const ConnectedCalendarHeader = currentDate(CalendarHeader);
+const ConnectedDaysList = thisMonth(DaysList);
 
 function App() {
 	return (

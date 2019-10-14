@@ -1,9 +1,6 @@
-export const createDaysArray = days => {
-    const array = [];
-    
-    for (let i = 1; i <= days; i++) {
+export const createDaysArray = (from, to, array) => {    
+    for (let i = from; i <= to; i++) {
         array.push(i);
     }
-    
     return array;
 }

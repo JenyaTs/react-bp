@@ -1,12 +1,10 @@
 import Immutable from 'immutable';
 
-const initialState = Immutable.Map({
-	year: new Date().getFullYear(),
-	month: new Date().toLocaleString('en', { month: 'long' }),
-	day: new Date().getDate()
+const initialState = Immutable.fromJS({
+	currentDate: new Date()
 });
 
-export const currentDay = (state = initialState, action) => {		
+export const data = (state = initialState, action) => {		
     switch (action.type) {
 		default:
 			return state

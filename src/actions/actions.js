@@ -1,4 +1,6 @@
 import { actionCreator } from './action-creators';
-import { GLOBAL_STATE_UPDATE } from './constants';
+import { NEXT_MONTH_GET } from './constants';
+import { PREV_MONTH_GET } from './constants';
 
-export const updateGlobalState = actionCreator(GLOBAL_STATE_UPDATE);
+export const getNextMonth = actionCreator(NEXT_MONTH_GET);
+export const getPreviousMonth = actionCreator(PREV_MONTH_GET);

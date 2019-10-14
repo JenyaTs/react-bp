@@ -1,1 +1,2 @@
-export const GLOBAL_STATE_UPDATE = 'GLOBAL_STATE_UPDATE';
+export const NEXT_MONTH_GET = 'NEXT_MONTH_GET';
+export const PREV_MONTH_GET = 'PREV_MONTH_GET';

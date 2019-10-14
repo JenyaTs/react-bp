@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect'
-import { currentMonth, currentYear } from '../selectors/index';
+import { date } from '../selectors/index';
 
-const date = createSelector(
-    currentMonth, currentYear,
-    (month, year) => ({
-        month,
-        year
-    })
+const dateData = createSelector(
+    date,
+    (date) => {        
+       return ({
+        month: date.toLocaleString('en', { month: 'long' }),
+        year: date.getFullYear()
+    })}
 );
 
 export const currentDateConnector = connect(
-    date
+    dateData
 );
