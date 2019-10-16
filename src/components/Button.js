@@ -1,11 +1,11 @@
 import React from 'react';
 
 export const Button = props => {
-    const { text, updateGlobalState } = props;
+	const { text, updateDate, flag } = props;	
     
 	return (
 		<button className="App" onClick={() => {
-			updateGlobalState();
+			updateDate(+flag);
 		}}>
             {text}
 		</button>

@@ -3,18 +3,18 @@ import './App.css';
 import { Button } from './components/Button';
 import { CalendarHeader } from './components/CalendarHeader';
 import { DaysList } from './components/DaysList';
-import { currentDate } from './connectors/index'
-import { thisMonth } from './connectors/index'
+import { currentDate, thisMonth, updateDate } from './connectors/index';
 
 const ConnectedCalendarHeader = currentDate(CalendarHeader);
 const ConnectedDaysList = thisMonth(DaysList);
+const ConnectedButton = updateDate(Button);
 
 function App() {
 	return (
 		<div className="calendar-wrapper">
-			<Button />
+			<ConnectedButton flag="-1"/>
 			<ConnectedCalendarHeader />
-			<Button />
+			<ConnectedButton flag="1"/>
 			<ConnectedDaysList />
 		</div>
 	);

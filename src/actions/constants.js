@@ -1,2 +1,1 @@
-export const NEXT_MONTH_GET = 'NEXT_MONTH_GET';
-export const PREV_MONTH_GET = 'PREV_MONTH_GET';
+export const UPDATE_DATE = 'UPDATE_DATE';

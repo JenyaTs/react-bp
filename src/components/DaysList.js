@@ -4,7 +4,7 @@ import { Day } from './Day';
 export const DaysList = props => {
     const days = props.days; 
     
-    console.log(props)
+    // console.log(props)
     
 	return (
 		<ul className="date-list">
