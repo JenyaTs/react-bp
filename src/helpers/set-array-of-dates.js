@@ -1,42 +1,45 @@
-import { createDaysArray } from './create-days-array';
-import { getDaysInMonth } from './get-days-in-month';
+import { createDaysArray } from './internal-functions/create-days-object';
+import { setPairOfDates } from './internal-functions/set-pair-of-dates';
+import { getFirstMonthDayIndex } from './internal-functions/get-first-month-day-index';
+import { getDaysInMonth } from './internal-functions/get-days-in-month';
 
 export const setArrayOfDates = (data) => {
-    let daysArray = [];
+    let daysList = {},
+        daysCount = getDaysInMonth(data.getYear(), data.getMonth()),
+        prevMonthDaysCount = getDaysInMonth(data.getYear(), data.getMonth() - 1),
+        nextMonthDaysCount = getDaysInMonth(data.getYear(), data.getMonth() + 1);
     
-    let currentMonthData = {
-            daysCount: getDaysInMonth(data.getYear(), data.getMonth()),
-            firstDayIndex: new Date(data.getFullYear(), data.getMonth(), 1).getDay()
+    let calendarData = {
+        previousMonth: {
+            daysCount: prevMonthDaysCount,
+            firstDayIndex: getFirstMonthDayIndex(new Date(data.getFullYear(), data.getMonth() - 1, 1).getDay()),
+            prevMonthDaysCount: getDaysInMonth(data.getYear(), data.getMonth() - 2),
+            id: 'prevMonth'
         },
 
-        previousMonthData = {
-            daysCount: getDaysInMonth(data.getYear(), data.getMonth() - 1),
-            firstDayIndex: new Date(data.getFullYear(), data.getMonth() - 1, 1).getDay()
-        };
+        currentMonth: {
+            daysCount: daysCount,
+            firstDayIndex: getFirstMonthDayIndex(new Date(data.getFullYear(), data.getMonth(), 1).getDay()),
+            prevMonthDaysCount: prevMonthDaysCount,
+            id: 'thisMonth'
+        },
 
-    let firstArg = currentMonthData.firstDayIndex - 1;
+        nextMonth: {
+            daysCount: nextMonthDaysCount,
+            firstDayIndex: getFirstMonthDayIndex(new Date(data.getFullYear(), data.getMonth() + 1, 1).getDay()),
+            prevMonthDaysCount: daysCount,
+            id: 'nextMonth'
+        }
+    };  
 
-    if (firstArg < 0)  {
-        firstArg = 6;
-    } 
-
-    createDaysArray(previousMonthData.daysCount - firstArg + 1, previousMonthData.daysCount, daysArray);
-
-    createDaysArray(1, currentMonthData.daysCount, daysArray);
-
-    if (daysArray.length < 35) {
-        createDaysArray(1, 35 - daysArray.length, daysArray);
-    }
-
-    else if (daysArray.length < 42) {
-        createDaysArray(1, 42 - daysArray.length, daysArray);
-    }
-
-    else if (daysArray.length === 35 || daysArray.length === 42) {
-        return daysArray;
-    }
-
-    console.log(daysArray);
-    return daysArray;
+    //creates object of dates for current, next and previous month
+    createDaysArray(setPairOfDates(calendarData), daysList);
+    //_______
+    
+    console.log(daysList);
+    
+    return daysList;
 
 }
+
+
