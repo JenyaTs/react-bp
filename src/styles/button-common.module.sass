@@ -1,0 +1,20 @@
+@import 'variables';
+    
+.button 
+    border: none;
+    background: $button_background;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    outline: none;
+    position: relative;
+    width: 20px;
+
+    &:after 
+        border: 2px solid $button_color;
+        border-left: none;
+        border-bottom: none;
+        content: '';
+        display: block;
+        height: 15px;
+        width: 15px; 

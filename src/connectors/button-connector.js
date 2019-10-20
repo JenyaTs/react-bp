@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateDate } from '../actions/actions'
+import { updateDate } from '../actions/actions';
 
 export const buttonConnector = connect(
     null,

@@ -1,0 +1,24 @@
+@import 'variables';
+
+body 
+    font-family: sans-serif;
+
+li 
+    color: $day_item;
+    cursor: pointer;
+    list-style: none;
+
+ul 
+    margin-bottom: 0;
+    padding: 0;
+
+.current 
+    color: $day_item_current;
+
+.prev
+    &:after 
+        transform: rotate(-135deg);
+
+.next 
+    &:after
+        transform: rotate(45deg);

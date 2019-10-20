@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { Calendar } from './Calendar';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 import { initStore } from './store';
+import { thisMonth } from './connectors/index';
+
+const ConnectedCalendar = thisMonth(Calendar);
 
 ReactDOM.render((
     <Provider store={initStore()}>
-        <App />
+        <ConnectedCalendar />
     </Provider>
 ), document.getElementById('root'));
 
