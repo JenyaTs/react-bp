@@ -13,7 +13,7 @@ const ConnectedCalendarHeader = currentDate(CalendarHeader);
 const ConnectedButton = updateDate(Button);
 const ConnectedDate = dateMini(Date);
 
-export function Calendar(props) {
+export function Calendar(props) {	
 	const data = props.days;
 	return (
 		<>
@@ -31,6 +31,7 @@ export function Calendar(props) {
 						key={index}
 						days={data[month].days} 
 						mark={data[month].currentMonthDays}
+						currentDay={data[month].currentDay}
 						/>
 					)}
 				</div>

@@ -12,8 +12,8 @@ ul
     margin-bottom: 0;
     padding: 0;
 
-.current 
-    color: $day_item_current;
+.current-month 
+    color: $day_item_current_month;
 
 .prev
     &:after 
@@ -22,3 +22,7 @@ ul
 .next 
     &:after
         transform: rotate(45deg);
+
+.now 
+    background: $day_item_current;
+    border-radius: 5px;
